@@ -1,0 +1,24 @@
+<% cache @user do %>
+  <h2>
+    <%= user_avatar(@user) %>
+    <%= t(".user_recipes", username: @user.username) %>
+  </h2>
+
+  <div>
+    Recipes: <%= @user.recipes_count %>
+  </div>
+
+  <div>
+    Followers: <%= @user.followers_count %>
+  </div>
+
+  <div>
+    Followees: <%= @user.followed_users_count %>
+  </div>
+
+  <% if current_user != @user %>
+    <%= follow_button @user if current_user != @user %>
+  <% end %>
+
+  <%= render @recipes %>
+<% end %>

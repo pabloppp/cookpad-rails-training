@@ -1,0 +1,14 @@
+<h2>Steps</h2>
+<ol>
+  <% recipe.steps.each do |step| %>
+    <li class="step">
+      <%= step.description %>
+
+      <% if !step.image.url.blank? %>
+        <div class="step-image" >
+          <%= image_tag step.image.url(:thumb)%>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ol>

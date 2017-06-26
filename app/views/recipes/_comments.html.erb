@@ -1,0 +1,20 @@
+<% comments.reverse.each do |comment| %>
+  <div class="comment">
+    <small>
+      <%= user_avatar(comment.user) %>
+      <%= comment.username %>
+      <small class="float-right">
+        <%= time_ago_in_words(comment.created_at) %> ago
+      </small>
+    </small>
+    <p class="comment-text">
+      <%= comment.body %>
+
+      <small class="float-right">
+        <% if comment.user == current_user %>
+          <%= link_to fa_icon("trash").html_safe, [:my, comment], method: :delete, class: "button-light icon" %>
+        <% end %>
+      </small>
+    </p>
+  </div>
+<% end %>

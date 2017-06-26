@@ -1,0 +1,13 @@
+<div>
+  <%= form.label :description %>
+  <%= link_to t(".remove"), "#", data: { role: "remove-nested"}, class: "button-light delete" %>
+  <% if !form.object.image.url.blank? %>
+    <div class="step-image" >
+      <%= image_tag form.object.image.url(:thumb)%>
+    </div>
+  <% end %>
+  <br />
+  <%= form.text_area :description, required: true %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :_destroy, value: 0 %>
+</div>

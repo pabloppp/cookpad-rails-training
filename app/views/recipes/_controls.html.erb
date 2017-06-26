@@ -1,0 +1,5 @@
+<div>
+  CONTROLS:
+  <%= link_to fa_icon("edit").html_safe, [:edit, :my, recipe], class: "button-light icon indigo" %>
+  <%= link_to fa_icon("trash").html_safe, [:my, recipe], method: :delete, data: { confirm: t(".confirm_delete") }, class: "button-light icon" %>
+</div>

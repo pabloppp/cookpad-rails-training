@@ -1,0 +1,7 @@
+<b>
+  <%= t(".commented") %>
+</b>
+on <%= link_to comment_activity.recipe_title, comment_activity.recipe, class: "simple_link" %>
+<p class="comment-text">
+  <%= comment_activity.comment_body %>
+</p>

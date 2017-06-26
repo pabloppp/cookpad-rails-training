@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <%= link_to "Cookpad", "/", class: "button-light flex-left"%>
+    <% if signed_in? %>
+      <%= current_user.username %>
+      <%= link_to t("my_recipes"), current_user, class: "button-light"%>
+      <%= link_to t("sign_out"), session_path, method: :delete, class: "button-light" %>
+    <% else %>
+      <%= link_to t("sign_in"), new_session_path, class: "button-light" %>
+      <%= link_to t("sign_up"), new_user_path, class: "button" %>
+    <% end %>
+  </nav>
+</header>

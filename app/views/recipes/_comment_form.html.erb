@@ -1,0 +1,7 @@
+<fieldset>
+  <legend>Comments</legend>
+  <%= form_for [recipe, Comment.new] do |form| %>
+    <%= form.text_area :body, required: true, class: "comment-form", placeholder: t(".comment_form_placeholder") %>
+    <%= form.submit nil, class: "button"%>
+  <% end %>
+</fieldset>

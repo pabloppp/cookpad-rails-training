@@ -1,0 +1,82 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  sign_up: "Sign-up"
+  sign_out: "Sign-out"
+  sign_in: "Sign-in"
+  my_recipes: "My recipes"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  like: "Like"
+  unlike: "Unlike"
+  users:
+    show:
+      user_recipes: "%{username}'s recipes"
+  homes:
+    show:
+      create_recipe: "Create recipe"
+  helpers:
+    submit:
+      recipe:
+        create: "Save"
+        update: "Save"
+        add_ingredient: "Add ingredient"
+      search:
+        submit: "Search"
+
+  recipes:
+    show:
+      confirm_delete: "Do you really want to delete this recipe?"
+    comment_form:
+      comment_form_placeholder: "Write here your comment"
+  my:
+    recipes:
+      form:
+        add_ingredient: Add ingredient
+      ingredient_fields:
+        remove: "delete"
+      step_fields:
+        remove: "delete"
+
+  bookmark_activities:
+    bookmark_activity:
+      bookmarked: "bookmarked"
+  like_activities:
+    like_activity:
+      liked: "liked"
+  publish_recipe_activities:
+    publish_recipe_activity:
+      published: "published"
+
+  searches:
+    form:
+      search_here: "Search by title or ingredients"

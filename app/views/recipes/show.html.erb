@@ -1,0 +1,41 @@
+<div class="container-main">
+  <% if !@recipe.image.url.blank? %>
+    <div class="recipe-image" >
+      <%= image_tag @recipe.image.url %>
+    </div>
+  <% end %>
+
+  <h1>
+    <%= @recipe.title %>
+  </h1>
+
+  <%= like_button @recipe %>
+  <%= bookmark_button @recipe %>
+
+  <% if @recipe.description.present? %>
+    <p>
+      <%= @recipe.description %>
+    </p>
+  <% end %>
+
+
+  <%= user_avatar( @recipe.user) %>
+  <%= link_to @recipe.username, @recipe.user %>
+
+  <% cache @recipe do %>
+    <%= render "ingredients", recipe: @recipe %>
+    <%= render "steps", recipe: @recipe %>
+  <% end %>
+
+
+  <% if current_user.owns?(@recipe) %>
+    <br /><br />
+    <%= render "controls", recipe: @recipe %>
+    <br /><br />
+  <% end %>
+
+  <%= render "comment_form", recipe: @recipe %>
+  <% cache @comments do %>
+    <%= render "comments", comments: @comments %>
+  <% end %>
+</div>

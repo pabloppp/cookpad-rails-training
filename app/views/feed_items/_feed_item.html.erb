@@ -1,0 +1,8 @@
+<div class="feed_item">
+  <%= user_avatar( feed_item.user_activity.user ) %>
+  <%= feed_item.author_name %>
+  <small class="float-right hint">
+    <%= time_ago_in_words(feed_item.created_at) %> ago
+  </small>
+  <%= render feed_item.user_activity %>
+</div>

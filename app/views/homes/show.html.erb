@@ -1,0 +1,8 @@
+<div class="container-main">
+  <%= link_to t(".create_recipe"), new_my_recipe_path, class: "button" %>
+  <br />
+  <br />
+  <%= render "searches/form" %>
+  <%= render @recipes %>
+  <%= paginate @recipes %>
+</div>

@@ -1,0 +1,51 @@
+<div class="container-main">
+  <% if !@recipe.image.url.blank? %>
+    <div class="recipe-image" >
+      <%= image_tag @recipe.image.url(:medium)%>
+    </div>
+  <% end %>
+  
+  <%= form_for [:my, @recipe], html: { multipart: true } do |form| %>
+    <fieldset>
+      <legend>General</legend>
+      <div>
+        <%= form.label :title %>
+        <br />
+        <%= form.text_field :title, required: true %>
+      </div>
+      <div>
+        <%= form.label :description %>
+        <br />
+        <%= form.text_area :description %>
+      </div>
+
+      <div>
+        <%= form.label :image %>
+        <br />
+        <%= form.file_field :image %>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ingredients</legend>
+      <%= form.fields_for(:ingredients) do |ingredients_form| %>
+        <%= render "ingredient_fields", form: ingredients_form %>
+      <% end %>
+      <%= link_to_add_nested t(".add_ingredient"), form, :ingredients %>
+    </fieldset>
+    <br />
+
+    <fieldset>
+      <legend>Steps</legend>
+      <%= form.fields_for(:steps) do |steps_form| %>
+        <%= render "step_fields", form: steps_form %>
+      <% end %>
+      <%= link_to_add_nested t(".add_step"), form, :steps %>
+    </fieldset>
+    <br />
+
+    <div>
+      <%= form.submit nil, class: "button"%>
+    </div>
+  <% end %>
+</div>
